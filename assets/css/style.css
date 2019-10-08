@@ -1,0 +1,13 @@
+#container {
+    margin: 1em 5em 1em 5em;
+    text-align: center;
+}
+
+.card-body {
+    text-align: left;
+}
+
+.jumbotron {
+    background-color: #343A40;
+    color: white;
+}

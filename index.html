@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Train Scheduler</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Train Scheduler</h1>
+                <p class="lead">Wanderlust is in the air!</p>
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header">Current Train Times</div>
+            <div class="card-body p-0">
+                <table class="table table-striped table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frequency (min)</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Polar Express</th>
+                            <td>The North Pole</td>
+                            <td>10 Minutes</td>
+                            <td>3:30 PM</td>
+                            <td>10 Minutes</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Polar Express</th>
+                            <td>The North Pole</td>
+                            <td>10 Minutes</td>
+                            <td>3:30 PM</td>
+                            <td>10 Minutes</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Polar Express</th>
+                            <td>The North Pole</td>
+                            <td>10 Minutes</td>
+                            <td>3:30 PM</td>
+                            <td>10 Minutes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header">Add Train</div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Train Name</label>
+                        <input type="text" class="form-control" id="inputTrain" aria-describedby="emailHelp"
+                            placeholder="Enter Train">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Destination</label>
+                        <input type="text" class="form-control" id="inputDestination" placeholder="Destination">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">First Train Time (HH:mm - military time)</label>
+                        <input type="number" class="form-control" id="inputDestination" placeholder="23:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Frequency (min)</label>
+                        <input type="number" class="form-control" id="inputDestination" placeholder="15">
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="assets/javascript/logic.js"></script>
+</body>
+
+</html>
