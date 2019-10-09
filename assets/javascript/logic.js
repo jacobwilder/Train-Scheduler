@@ -70,6 +70,7 @@ $(document).ready(function () {
         var difference = moment().diff(moment(firstTimeConverted), "minutes");
         console.log("DIFFERENCE IN TIME: " + difference);
 
+        // Time apart between current time and next train
         var remainder = difference % frequency;
         console.log(remainder);
 
