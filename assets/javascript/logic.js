@@ -1,5 +1,8 @@
 $(document).ready(function () {
-    
+
+    // Calls local time function
+    displayTime();
+
     // Firebase initialization
     const config = {
         apiKey: "AIzaSyAIKr9qotSCVGYT7rk8cF6_MIUHzEOhDjY",
@@ -51,16 +54,17 @@ $(document).ready(function () {
         console.log(childSnap.val().destination);
         console.log(childSnap.val().firstTime);
         console.log(childSnap.val().frequency);
-        
+
         firstTime = childSnap.val().firstTime;
         frequency = childSnap.val().frequency;
-        
+
         //Time conversion
         var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
         console.log(firstTimeConverted);
 
         var currentTime = moment();
         console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
 
         var difference = moment().diff(moment(firstTimeConverted), "minutes");
         console.log("DIFFERENCE IN TIME: " + difference);
@@ -82,17 +86,16 @@ $(document).ready(function () {
             " </td><td id='time-display'> " + moment(nextTrain).format("hh:mm") +
             " </td> +<td id='arrival'>" + tMinus + "</tr>");
 
-
     }, function (errorObject) {
-    
+
         // Logs errors if any are detected
         console.log("Errors handled: " + errorObject.code);
-    
+
     });
 
     // Orders child chains by date added
     database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
-        
+
         firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
         currentTime = moment();
         difference = moment().diff(moment(firstTimeConverted), "minutes");
@@ -101,4 +104,11 @@ $(document).ready(function () {
         nextTrain = moment().add(tMinus, "minutes");
 
     });
+
+    // Function for displaying local time as jumbotron subtitle
+    function displayTime() {
+        var time = moment().format('HH:mm:ss');
+        $(".lead").html("Local Time: " + time);
+        setTimeout(displayTime, 1000);
+    }
 })
