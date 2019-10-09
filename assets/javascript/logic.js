@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    
+    // Firebase initialization
     const config = {
         apiKey: "AIzaSyAIKr9qotSCVGYT7rk8cF6_MIUHzEOhDjY",
         authDomain: "bootcamp-project-c9367.firebaseapp.com",
@@ -11,23 +13,26 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
-
+    // Setting firebase database variable
     var database = firebase.database();
 
+    // Setting initial values of variables
     var train = "";
     var destination = "";
     var firstTime = "";
     var frequency = 0;
 
+    // On click event for submit button
     $("#submit").on("click", function (event) {
         event.preventDefault();
 
-        // Grabbed values from text boxes
+        // Pulled values from text boxes
         train = $("#inputTrain").val().trim();
         destination = $("#inputDestination").val().trim();
         firstTime = $("#inputTrainTime").val().trim();
         frequency = $("#inputFrequency").val().trim();
 
+        // Pushes submitted data to new child chain
         database.ref().push({
             train: train,
             destination: destination,
@@ -37,9 +42,10 @@ $(document).ready(function () {
         })
     })
 
-
+    // Function runs on each new child
     database.ref().on("child_added", function (childSnap) {
 
+        // Captures new child data
         console.log(childSnap.val());
         console.log(childSnap.val().train);
         console.log(childSnap.val().destination);
@@ -49,6 +55,7 @@ $(document).ready(function () {
         firstTime = childSnap.val().firstTime;
         frequency = childSnap.val().frequency;
         
+        //Time conversion
         var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
         console.log(firstTimeConverted);
 
@@ -67,6 +74,7 @@ $(document).ready(function () {
         var nextTrain = moment().add(tMinus, "minutes");
         console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
+        // Adding new table row on each new child and inputting converted data
         $("#table-body").append("<tr class='display'><td id='train-display'> " +
             childSnap.val().train +
             " </td><td id='destination-display'> " + childSnap.val().destination +
@@ -76,9 +84,13 @@ $(document).ready(function () {
 
 
     }, function (errorObject) {
+    
+        // Logs errors if any are detected
         console.log("Errors handled: " + errorObject.code);
+    
     });
 
+    // Orders child chains by date added
     database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
         
         firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
@@ -88,22 +100,5 @@ $(document).ready(function () {
         tMinus = frequency - remainder;
         nextTrain = moment().add(tMinus, "minutes");
 
-        // $("#train-display").text(snapshot.val().train);
-        // $("#destination-display").text(snapshot.val().destination);
-        // $("#time-display").text(moment(nextTrain).format("hh:mm"));
-        // $("#freq-display").text(snapshot.val().frequency);
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
