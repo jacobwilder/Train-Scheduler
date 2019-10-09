@@ -97,18 +97,6 @@ $(document).ready(function () {
 
     });
 
-    // Orders child chains by date added
-    database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
-
-        firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-        currentTime = moment();
-        difference = moment().diff(moment(firstTimeConverted), "minutes");
-        remainder = difference % frequency;
-        tMinus = frequency - remainder;
-        nextTrain = moment().add(tMinus, "minutes");
-
-    });
-
     // Function for displaying local time as jumbotron subtitle
     function displayTime() {
         var time = moment().format('HH:mm:ss');
