@@ -32,28 +32,7 @@
                             <th scope="col">Minutes Away</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Polar Express</th>
-                            <td>The North Pole</td>
-                            <td>10 Minutes</td>
-                            <td>3:30 PM</td>
-                            <td>10 Minutes</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Polar Express</th>
-                            <td>The North Pole</td>
-                            <td>10 Minutes</td>
-                            <td>3:30 PM</td>
-                            <td>10 Minutes</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Polar Express</th>
-                            <td>The North Pole</td>
-                            <td>10 Minutes</td>
-                            <td>3:30 PM</td>
-                            <td>10 Minutes</td>
-                        </tr>
+                    <tbody id="table-body">
                     </tbody>
                 </table>
             </div>
@@ -73,13 +52,13 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">First Train Time (HH:mm - military time)</label>
-                        <input type="number" class="form-control" id="inputDestination" placeholder="23:00">
+                        <input type="text" class="form-control" id="inputTrainTime" placeholder="23:00">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Frequency (min)</label>
-                        <input type="number" class="form-control" id="inputDestination" placeholder="15">
+                        <input type="number" class="form-control" id="inputFrequency" placeholder="15">
                     </div>
-                    <button type="submit" class="btn btn-secondary">Submit</button>
+                    <button  id="submit" type="submit" class="btn btn-secondary">Submit</button>
                 </form>
 
             </div>
@@ -90,6 +69,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script src="assets/javascript/logic.js"></script>
 </body>
 
