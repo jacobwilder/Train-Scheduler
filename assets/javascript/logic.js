@@ -88,10 +88,10 @@ $(document).ready(function () {
         tMinus = frequency - remainder;
         nextTrain = moment().add(tMinus, "minutes");
 
-        $("#train-display").text(snapshot.val().train);
-        $("#destination-display").text(snapshot.val().destination);
-        $("#time-display").text(moment(nextTrain).format("hh:mm"));
-        $("#freq-display").text(snapshot.val().frequency);
+        // $("#train-display").text(snapshot.val().train);
+        // $("#destination-display").text(snapshot.val().destination);
+        // $("#time-display").text(moment(nextTrain).format("hh:mm"));
+        // $("#freq-display").text(snapshot.val().frequency);
     });
 
 
