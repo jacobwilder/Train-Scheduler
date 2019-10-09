@@ -58,23 +58,26 @@ $(document).ready(function () {
         firstTime = childSnap.val().firstTime;
         frequency = childSnap.val().frequency;
 
-        //Time conversion
+        // Converts input time to previous year, changes format
         var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
         console.log(firstTimeConverted);
 
+        // Captures current time
         var currentTime = moment();
         console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
-
+        // Calculates difference between current time and input time
         var difference = moment().diff(moment(firstTimeConverted), "minutes");
         console.log("DIFFERENCE IN TIME: " + difference);
 
         var remainder = difference % frequency;
         console.log(remainder);
 
+        // Calculates time until next train
         var tMinus = frequency - remainder;
         console.log("MINUTES TILL TRAIN: " + tMinus);
 
+        // Calculates arrival time of next train
         var nextTrain = moment().add(tMinus, "minutes");
         console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
